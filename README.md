@@ -1,92 +1,21 @@
-# Test Frontend
+#Less is more.
+Less is more è il principio che ha guidato lo sviluppo di questa demo. Ho scelto questo approccio perchè meglio può esprimere le capacità tecniche di chi lo pratica.
 
-![Logo ProntoPro.it](https://www.prontopro.it/bundles/prontoprofrontend/img/logo.png)
+- incredibile pulizia ed essenzialità del codice,
+- scrivere solo ciò che serve,
+- no javascript perchè non necessario (lo sarebbe solo per caricare il video, ma ho inteso che non fosse oggetto di questo test)
 
-## Istruzioni
+Tecncologie essenziali e poco codice significano minore e più veloce manutenzione.
 
-Il test consiste nella ralizzazione di due pagine:
-- Una dinamica con forms, chiamate ajax e manipolazione del DOM.
-- Una statica per la realizzazione di un mockup dettagliato.
+Questo è possibile grazie allo sviluppo dal foglio bianco, praticabile solo con ottime conoscenze tecniche. Agli antipodi c'è lo sviluppo basato su un frontend framework come bootstrap, che farcisce di classi i tag html rendendo difficoltoso ottenere il risultato desiderato e contravvenendo al principio cardine della separazione tra markup e layout.
 
-Le pagine devono essere realizzate secondo standards e best practices, con decente compatibilità cross-browser e in modo adatto alla fruizione su dispositivi mobili.
+Motivo alcune delle scelte più significative:
+- ho optato per un design elastico senza compromessi, le media query sono utilizzate puntualmente solo dove necessario e non in maniera indiscriminata e preventiva;
+- il menu è subito visibile anche in versione mobile evitando di utilizzare l'abusata icona per richamarlo;
+- in mobile il layout cambia tra landscape e portrait utilizzando la proprietà orientation a mio avviso spesso sottovalutata;
+- gli stati hover sono gradevoli, ma non urlati;
+- i logo delle testate giornalistiche sono visualizzati in scala di grigi, a colori, ed in total white pur utilizzando un'unica source grazie all'uso dei filtri css.
 
-Entrambe le pagine condividono header e footer.
-![header](http://prontoproit.github.io/FrontendTest/img/header.png) ![footer](http://prontoproit.github.io/FrontendTest/img/footer.png)
+La messa in produzione della pagina necessiterebbe di compressione del codice che non è stata eseguita per favorirne la leggibilità.
 
-### Pagina Dinamica
-
-![mockup](http://prontoproit.github.io/FrontendTest/img/mockup1.png)
-
-Nella sezione centrale c'è un campo con autocomplete le cui voci sono caricate attraverso una chiamata ajax all'indirizzo:  
-`https://www.prontopro.it/work-with-us/dev/fe/test/autocomplete`
-
-L'oggetto ritornato è nella forma:
-
-```
-[
-  {
-    "label": <label>,
-    "url": <url>
-  }, ...
-]
-```
-
-In cui `<label>` è l'etichetta della suggestion da mostrare nell'autocomplete e `<url>` è l'indirizzo da cui ottenere le specifiche del form da renderizzare.
-
-Al momento della selezione di una tipologia di form dall'autocomplete bisogna renderizzarlo ottenendo le specifiche con una chiamata ajax all'url ottenuto allo step precedente.
-
-L'oggetto ritornato è nella forma:
-
-```
-[
-  {
-    "name": <name>,
-    "label": <label>,
-    "type": <type>,
-    "rules": [
-      {
-        "type": <rule_type>,
-        "msg": <error_message>,
-        "options": <optional_parameters>
-      }, ...
-    ]
-  }, ...
-]
-```
-
-(vedere [form0](https://www.prontopro.it/work-with-us/dev/fe/test/form/0), [form1](https://www.prontopro.it/work-with-us/dev/fe/test/form/1), [form2](https://www.prontopro.it/work-with-us/dev/fe/test/form/2) per riferimento ai possibili valori)
-
-![mockup](http://prontoproit.github.io/FrontendTest/img/mockup2.png)
-
-Quando viene cliccato il bottone di submit deve essere effettuata la validazione secondo le regole espresse in `rules`, mostrando eventuali messaggi di errore.
-
-Se il form passa la validazione i valori devono essere visualizzati nella colonna di destra. 
-
-Bonus:
-- Possibilità di eliminare una delle precedenti submission.
-- Possibilità di ricaricare i dati di una submission passata cliccandoci sopra.
-
-### Pagina statica
-
-Realizzare la pagina del seguente mockup:
-
-![mockup](http://prontoproit.github.io/FrontendTest/img/static.png)
-
-## Valutazione
-
-I primari oggetti di valutazione sono:
-- Completezza rispetto alle specifiche.
-- Organizzazione, pulizia e stile.
-
-Inoltre verranno considerate le scelte fatte:
-- Uso di un preprocessore (JS e/o CSS).
-- Uso di librerie e frameworks (JS e/o CSS).
-- Automatizzazione del processo di build.
-- Eventuale integrazione di meccanismi di testing e/o linting.
-
-(Dove ritenuto opportuno motivare le scelte effettuate)
-
-## Modalità di consegna
-
-Effettuare una fork di questa repository, realizzare le pagine richieste e, a compito eseguito, iniziare una pull request.  
-Inoltre scrivere una semplice nota (o come messaggio sulla PR o rimpiazzando questo README) sulla struttura del progetto, su come eseguirlo ed eventuali info utili.
+La pagina supera con zero errori i test di validazione di html e css del w3c.
